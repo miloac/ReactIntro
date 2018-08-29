@@ -8,14 +8,11 @@ export class TodoList extends React.Component {
     }   
 
     render() {
-//esto no va aqui
-        const todos = [{text:"Learn React", priority:5, dueDate: new Date() },
-          {text:"Learn about APIs", priority:4, dueDate: new Date(2018,8,30) },
-          {text:"write TODO App", priority:3, dueDate: new Date(2018,9,30) }];
-
-         
-        return (  
-          <TodoList todoList={todos}/>
+        const lista = this.props.todoList.map((ele) =>
+    <Todo text={ele.text.toString()} priority={ele.priority.toString()} dueDate={ele.dueDate.toString()} />
+  );     
+    return (  
+          <ul>{lista}</ul>
         );
     }
 
